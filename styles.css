@@ -63,8 +63,8 @@ fieldset {
   border: 0;
   font-size: 20px;
   font-family: 'Roboto', sans-serif;
-  padding: 10px;
-  margin-left: 35px;
+  /* padding: 30px; */
+  margin-left: 25px;
   display: flex;
   /* justify-content: center; */
   /* align-items: center; */
@@ -85,30 +85,27 @@ form {
   font-size: 30px;
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
-  margin-left: 20px;
+  /* padding: 50px; */
+  margin-left: 10px;
   margin-top: 60px;
+  margin-bottom: 15px;
+  /* Refactor onto one line */
 }
 
 .asterick {
   color: #ee5253;
 }
 
-/* .food-list {
-  font-size: 20px;
-  font-family: 'Roboto', sans-serif;
+.form-style {
   padding: 10px;
-  margin-left: 35px;
-} */
-
-/* I can do the before and after things with this or I can totally get rid of the list and add in an element ebfroe each? */
-
-/* #side {
-  margin-top: 15px;
 }
 
+#side {
+  /* margin-top: 50px; */
+}
 #entire-meal {
-  margin-bottom: 12px;
-} */
+  margin-bottom: 15px;
+}
 
 .lets-cook-button {
   width: 200px;
@@ -116,7 +113,7 @@ form {
   background-color: #0fb9b1;
   border: 0;
   border-radius: 6px;
-  margin-left: 45px;
+  margin-left: 15px;
   /* margin-bottom: 30px; */
 }
 
