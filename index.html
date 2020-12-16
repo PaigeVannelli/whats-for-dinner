@@ -10,12 +10,25 @@
     </header>
     <section class="home-view">
       <div class="input-box">
-        <header class="intro">What are you looking for?*</header>
-        <li class="food-list" id="side">Side</li>
+        <form>
+          <fieldset>
+            <header class="intro">What are you looking for?<span class="asterick">*</span></header>
+              <input type="radio" id="side" class="food-list" value="side">
+              <label for="dishChoice1">Side</label>
+              <input type="radio" id="main" class="food-list" value="main">
+              <label for="dishChoice2">Main</label>
+              <input type="radio" id="dessert" class="food-list" value="dessert">
+              <label for="dishChoice3">Dessert</label>
+              <input type="radio" id="entire-meal" class="food-list" value="entire disj">
+              <label for="dishChoice4">Entire Meal</label>
+
+        <!-- <li class="food-list" id="side">Side</li>
         <li class="food-list" id="main">Main Dish</li>
         <li class="food-list" id="desert">Dessert</li>
-        <li class="food-list" id="entire-meal">Entire Meal</li>
-        <button class="lets-cook-button">LET'S COOK!</button>
+        <li class="food-list" id="entire-meal">Entire Meal</li> -->
+            <button class="lets-cook-button">LET'S COOK!</button>
+          </fieldset>
+        </form>
       </div>
       <div class="output-box">
         <img class="cookpot" src="./assets/cookpot.svg" alt="Cook Pot">

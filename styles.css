@@ -54,37 +54,61 @@ body, html {
 
 .input-box {
   background-color: rgba(225, 225, 225, .9);
-  display: flex;
-  justify-content: center;
-  align-items: start;
-  flex-direction: column;
   margin-top: 50px;
   width: 500px;
   height: 400px;
+}
+
+fieldset {
+  border: 0;
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
+  padding: 10px;
+  margin-left: 35px;
+  display: flex;
+  /* justify-content: center; */
+  /* align-items: center; */
+  flex-direction: column;
+}
+
+form {
+  /* font-size: 20px;
+  font-family: 'Roboto', sans-serif;
+  padding: 10px;
+  margin-left: 35px; */
+  /* display: flex;
+  justify-content: space-around;
+  flex-direction: column; */
 }
 
 .intro {
   font-size: 30px;
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
-  margin-left: 45px;
-
+  margin-left: 20px;
+  margin-top: 60px;
 }
 
-.food-list {
+.asterick {
+  color: #ee5253;
+}
+
+/* .food-list {
   font-size: 20px;
   font-family: 'Roboto', sans-serif;
   padding: 10px;
   margin-left: 35px;
-}
+} */
 
-#side {
+/* I can do the before and after things with this or I can totally get rid of the list and add in an element ebfroe each? */
+
+/* #side {
   margin-top: 15px;
 }
 
 #entire-meal {
   margin-bottom: 12px;
-}
+} */
 
 .lets-cook-button {
   width: 200px;
