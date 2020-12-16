@@ -131,3 +131,7 @@ form {
   width: 110px;
   height: auto;
 }
+
+.hidden {
+  display: none;
+}
