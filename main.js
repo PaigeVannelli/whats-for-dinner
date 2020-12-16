@@ -20,6 +20,7 @@ function checkForm() {
   var dessert = document.getElementById("dessert").checked
   var entireMeal = document.getElementById("entire-meal").checked
   clickReturn(side, main, dessert, entireMeal)
+  hidePot()
 }
 
 function clickReturn(side, main, dessert, entireMeal) {
@@ -32,16 +33,32 @@ function clickReturn(side, main, dessert, entireMeal) {
 
 function returnSpecificMeal(side, main, buttonClick) {
   if (side && buttonClick === "lets-cook-button") {
-    returnSide()
+    returnFoodItem(sides);
   } else if (main && buttonClick === "lets-cook-button") {
-    console.log("return main")
+    returnFoodItem(mains);
   } else if (dessert && buttonClick === "lets-cook-button") {
-    console.log("return dessert")
+    returnFoodItem(desserts);
   } else if (entireMeal && buttonClick === "lets-cook-button") {
-    console.log("return meal")
+    // console.log("return meal")
   }
 }
 
-function returnFoodItem(whichArrayYouWantToTarget) {
-  //return random item from which array you want to target
+function returnFoodItem(array) {
+  console.log(array[getRandomIndex(array)])
+}
+
+function getRandomIndex(array) {
+  return Math.floor(Math.random() * array.length);
+}
+
+function hidePot() {
+  addHidden(".cookpot")
+  removeHidden()
+}
+
+function addHidden(class) {
+  class.classList.addHidden();
+}
+function removehidden() {
+
 }
