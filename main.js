@@ -32,6 +32,7 @@ function clickReturn(side, main, dessert, entireMeal) {
     event.preventDefault(buttonClick);
     returnFoodItemHandler(side, main, dessert, entireMeal, buttonClick);
     displayFood();
+    document.querySelector("form").reset();
   }
 }
 
@@ -47,7 +48,7 @@ function returnFoodItemHandler(side, main, dessert, entireMeal, buttonClick) {
 }
 
 function returnFoodItem(array) {
-  document.querySelector(".random-recipe").innerText = array[getRandomIndex(array)];
+  document.querySelector(".random-recipe").innerText = `${array[getRandomIndex(array)]}!`;
 }
 
 function getRandomIndex(array) {
