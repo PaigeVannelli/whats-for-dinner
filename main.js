@@ -12,18 +12,19 @@ window.addEventListener("click", checkForm);
 //query selector all - if check give me the id
 // arry of side main dessert iterate through and pass them in and see if they are checked
 
-//Add hidden and remove hidden functions
-//
-
 //~~~~~~~~~~~~~~~~~~~ FUNCTIONS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
 
 function checkForm() {
-  var side = document.getElementById("side").checked;
-  var main = document.getElementById("main").checked;
-  var dessert = document.getElementById("dessert").checked;
-  var entireMeal = document.getElementById("entire-meal").checked;
+  var side = getElement("side");
+  var main = getElement("main");
+  var dessert = getElement("dessert");
+  var entireMeal = getElement("entire-meal");
   clickReturn(side, main, dessert, entireMeal);
+}
+
+function getElement(element) {
+  return document.getElementById(element).checked;
 }
 
 function clickReturn(side, main, dessert, entireMeal) {
