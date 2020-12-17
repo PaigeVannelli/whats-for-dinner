@@ -68,6 +68,8 @@ function hidePot() {
 function showRecipe() {
   var recipeDisplay = document.querySelector(".recipe-display");
   var randomRecipeDisplay = document.querySelector(".random-recipe");
+  var clearButton = document.querySelector(".clear-button");
   recipeDisplay.classList.remove("hidden");
   randomRecipeDisplay.classList.remove("hidden");
+  clearButton.classList.remove("hidden");
 }
