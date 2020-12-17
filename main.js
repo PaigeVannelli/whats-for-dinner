@@ -1,6 +1,12 @@
+// ~~~~~~~~~~~~~~~~~~~ QUERY SELECTORS ~~~~~~~~~~~~~~~~~~~~~~~//
+
+var letsCookButton = document.querySelector(".lets-cook-button");
+var clearButton = document.querySelector(".clear-button")
+
 //~~~~~~~~~~~~~~~~~~~ EVENT LISTENERS ~~~~~~~~~~~~~~~~~~~~~~~//
 
-window.addEventListener("click", checkForm);
+letsCookButton.addEventListener("click", checkForm);
+clearButton.addEventListener("click", clearFood);
 
 //~~~~~~~~~~~~~~~~~~~~ To Do ~~~~~~~~~~~~~~~~~~~~~//
 
@@ -12,40 +18,57 @@ window.addEventListener("click", checkForm);
 //query selector all - if check give me the id
 // arry of side main dessert iterate through and pass them in and see if they are checked
 
+
+//take out the global event listener
+
+//Click clear button
+//Create a global event listener and qs for the clear button
+//We need to create the function target the clear button and have the action be
+//1. only be able to clear if food is present? This might be the trick
+//I will then use my hide function to show the right stuff
+
 //~~~~~~~~~~~~~~~~~~~ FUNCTIONS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
 
 function checkForm() {
-  var side = getElement("side");
-  var main = getElement("main");
-  var dessert = getElement("dessert");
-  var entireMeal = getElement("entire-meal");
-  clickReturn(side, main, dessert, entireMeal);
+  var side = isChecked("side");
+  var main = isChecked("main");
+  var dessert = isChecked("dessert");
+  var entireMeal = isChecked("entire-meal");
+  clickCookButton(side, main, dessert, entireMeal);
 }
 
-function getElement(element) {
+function isChecked(element) {
   return document.getElementById(element).checked;
 }
 
-function clickReturn(side, main, dessert, entireMeal) {
-  var buttonClick = event.target.className;
-  if (buttonClick === "lets-cook-button") {
-    event.preventDefault(buttonClick);
-    returnFoodItemHandler(side, main, dessert, entireMeal, buttonClick);
-    displayFood();
-    document.querySelector("form").reset();
+function clickCookButton(side, main, dessert, entireMeal) {
+  event.preventDefault();
+  returnFoodItemHandler(side, main, dessert, entireMeal);
+  displayFood();
+  document.querySelector("form").reset();
+}
+
+function returnFoodItemHandler(side, main, dessert, entireMeal) {
+  if (side) {
+    returnFoodItem(sides);
+  } else if (main) {
+    returnFoodItem(mains);
+  } else if (dessert) {
+    returnFoodItem(desserts);
+  } else if (entireMeal) {
   }
 }
 
-function returnFoodItemHandler(side, main, dessert, entireMeal, buttonClick) {
-  if (side && buttonClick === "lets-cook-button") {
-    returnFoodItem(sides);
-  } else if (main && buttonClick === "lets-cook-button") {
-    returnFoodItem(mains);
-  } else if (dessert && buttonClick === "lets-cook-button") {
-    returnFoodItem(desserts);
-  } else if (entireMeal && buttonClick === "lets-cook-button") {
-  }
+function displayFood() {
+  var cookpot = document.querySelector(".cookpot");
+  var recipeDisplay = document.querySelector(".recipe-display");
+  var randomRecipeDisplay = document.querySelector(".random-recipe");
+  var clearButton = document.querySelector(".clear-button");
+  showElement(cookpot);
+  showElement(recipeDisplay, true);
+  showElement(randomRecipeDisplay, true);
+  showElement(clearButton, true);
 }
 
 function returnFoodItem(array) {
@@ -56,18 +79,7 @@ function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
 
-function displayFood() {
-  var cookpot = document.querySelector(".cookpot");
-  var recipeDisplay = document.querySelector(".recipe-display");
-  var randomRecipeDisplay = document.querySelector(".random-recipe");
-  var clearButton = document.querySelector(".clear-button");
-  hidden(cookpot);
-  hidden(recipeDisplay, true);
-  hidden(randomRecipeDisplay, true);
-  hidden(clearButton, true);
-}
-
-function hidden(element, show) {
+function showElement(element, show) {
   if(show) {
     element.classList.remove("hidden");
   } else {
