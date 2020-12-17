@@ -8,6 +8,10 @@ red - #ee5253
 
 */
 
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
 body, html {
   width: 100%;
   border: 0;
@@ -17,9 +21,6 @@ body, html {
   width: 100%;
   height: 100%;
   background-size: 100%;
-  /* background-position: center center;
-  background-repeat: no-repeat;
-  text-align:center; */
 }
 
 .banner {
@@ -28,8 +29,6 @@ body, html {
   justify-content: space-between;
   flex-direction: column;
   height: 75px;
-  /* width: 100%; */
-  /* padding: 30px; */
 }
 
 .title {
@@ -43,53 +42,29 @@ body, html {
   display: flex;
   justify-content: space-around;
   flex-direction: row;
-  /* background-image: url('./assets/burger-friends.jpg');
-  width: 100%;
-  height: 100%;
-  background-size: 100% 100%; */
-  /* background-position: center center;
-  background-repeat: no-repeat;
-  text-align:center; */
 }
 
 .input-box {
   background-color: rgba(225, 225, 225, .9);
   margin-top: 50px;
-  width: 500px;
-  height: 400px;
+  width: 510px;
+  height: 410px;
 }
 
 fieldset {
-  border: 0;
   font-size: 20px;
   font-family: 'Roboto', sans-serif;
-  /* padding: 30px; */
   margin-left: 25px;
+  border: 0;
   display: flex;
-  /* justify-content: center; */
-  /* align-items: center; */
   flex-direction: column;
-}
-
-form {
-  /* font-size: 20px;
-  font-family: 'Roboto', sans-serif;
-  padding: 10px;
-  margin-left: 35px; */
-  /* display: flex;
-  justify-content: space-around;
-  flex-direction: column; */
 }
 
 .intro {
   font-size: 30px;
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
-  /* padding: 50px; */
-  margin-left: 10px;
-  margin-top: 60px;
-  margin-bottom: 15px;
-  /* Refactor onto one line */
+  margin: 60px 0px 15 10px;
 }
 
 .asterick {
@@ -100,9 +75,6 @@ form {
   padding: 10px;
 }
 
-#side {
-  /* margin-top: 50px; */
-}
 #entire-meal {
   margin-bottom: 15px;
 }
@@ -114,20 +86,52 @@ form {
   border: 0;
   border-radius: 6px;
   margin-left: 15px;
-  /* margin-bottom: 30px; */
 }
 
 .output-box {
   background-color: rgba(225, 225, 225, .9);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-top: 50px;
-  width: 500px;
-  height: 400px;
+  width: 510px;
+  height: 410px;
 }
 
 .cookpot {
   width: 110px;
   height: auto;
+}
+
+.recipe-display {
+  font-size: 20px;
+  font-weight: bold;
+  font-style: italic;
+  margin-top: 140px;
+  margin-bottom: 0px;
+  text-align: center;
+}
+
+.random-recipe {
+  font-size: 45px;
+  font-weight: bold;
+  margin: 0px;
+}
+
+.clear-button {
+  font-size: 15px;
+  font-weight: bold;
+  color: white;
+  width: 80px;
+  height: 38px;
+  margin-top: 105px;
+  margin-left: 385px;
+  border: 0px;
+  border-radius: 6px;
+  background-color: #95a5a6;
+}
+
+.hidden {
+  display: none;
 }
