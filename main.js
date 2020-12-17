@@ -1,8 +1,14 @@
+// ~~~~~~~~~~~~~~~~~~~ QUERY SELECTORS ~~~~~~~~~~~~~~~~~~~~~~~//
+
+var letsCookButton = document.querySelector(".lets-cook-button");
+var clearButton = document.querySelector(".clear-button")
+
 //~~~~~~~~~~~~~~~~~~~ EVENT LISTENERS ~~~~~~~~~~~~~~~~~~~~~~~//
 
-window.addEventListener("click", checkForm);
+letsCookButton.addEventListener("click", checkForm);
+clearButton.addEventListener("click", clearFood);
 
-//~~~~~~~~~~~~~~~~~~~~ To Dd ~~~~~~~~~~~~~~~~~~~~~//
+//~~~~~~~~~~~~~~~~~~~~ To Do ~~~~~~~~~~~~~~~~~~~~~//
 
 //If I click on one - make sure all other thre are false
 
@@ -12,39 +18,57 @@ window.addEventListener("click", checkForm);
 //query selector all - if check give me the id
 // arry of side main dessert iterate through and pass them in and see if they are checked
 
-//Add hidden and remove hidden functions
-//
+
+//take out the global event listener
+
+//Click clear button
+//Create a global event listener and qs for the clear button
+//We need to create the function target the clear button and have the action be
+//1. only be able to clear if food is present? This might be the trick
+//I will then use my hide function to show the right stuff
 
 //~~~~~~~~~~~~~~~~~~~ FUNCTIONS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
 
 function checkForm() {
-  var side = document.getElementById("side").checked;
-  var main = document.getElementById("main").checked;
-  var dessert = document.getElementById("dessert").checked;
-  var entireMeal = document.getElementById("entire-meal").checked;
-  clickReturn(side, main, dessert, entireMeal);
+  var side = isChecked("side");
+  var main = isChecked("main");
+  var dessert = isChecked("dessert");
+  var entireMeal = isChecked("entire-meal");
+  clickCookButton(side, main, dessert, entireMeal);
 }
 
-function clickReturn(side, main, dessert, entireMeal) {
-  var buttonClick = event.target.className;
-  if (buttonClick === "lets-cook-button") {
-    event.preventDefault(buttonClick);
-    returnFoodItemHandler(side, main, dessert, entireMeal, buttonClick);
-    displayFood();
-    document.querySelector("form").reset();
-  }
+function isChecked(element) {
+  return document.getElementById(element).checked;
 }
 
-function returnFoodItemHandler(side, main, dessert, entireMeal, buttonClick) {
-  if (side && buttonClick === "lets-cook-button") {
+function clickCookButton(side, main, dessert, entireMeal) {
+  event.preventDefault();
+  returnFoodItemHandler(side, main, dessert, entireMeal);
+  displayFood();
+  document.querySelector("form").reset();
+}
+
+function returnFoodItemHandler(side, main, dessert, entireMeal) {
+  if (side) {
     returnFoodItem(sides);
-  } else if (main && buttonClick === "lets-cook-button") {
+  } else if (main) {
     returnFoodItem(mains);
-  } else if (dessert && buttonClick === "lets-cook-button") {
+  } else if (dessert) {
     returnFoodItem(desserts);
-  } else if (entireMeal && buttonClick === "lets-cook-button") {
+  } else if (entireMeal) {
   }
+}
+
+function displayFood() {
+  var cookpot = document.querySelector(".cookpot");
+  var recipeDisplay = document.querySelector(".recipe-display");
+  var randomRecipeDisplay = document.querySelector(".random-recipe");
+  var clearButton = document.querySelector(".clear-button");
+  showElement(cookpot);
+  showElement(recipeDisplay, true);
+  showElement(randomRecipeDisplay, true);
+  showElement(clearButton, true);
 }
 
 function returnFoodItem(array) {
@@ -55,21 +79,10 @@ function getRandomIndex(array) {
   return Math.floor(Math.random() * array.length);
 }
 
-function displayFood() {
-  hidePot();
-  showRecipe();
-}
-
-function hidePot() {
-  var cookpot = document.querySelector(".cookpot");
-  cookpot.classList.add("hidden");
-}
-
-function showRecipe() {
-  var recipeDisplay = document.querySelector(".recipe-display");
-  var randomRecipeDisplay = document.querySelector(".random-recipe");
-  var clearButton = document.querySelector(".clear-button");
-  recipeDisplay.classList.remove("hidden");
-  randomRecipeDisplay.classList.remove("hidden");
-  clearButton.classList.remove("hidden");
+function showElement(element, show) {
+  if(show) {
+    element.classList.remove("hidden");
+  } else {
+    element.classList.add("hidden");
+  }
 }
