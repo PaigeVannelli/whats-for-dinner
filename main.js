@@ -2,7 +2,7 @@
 
 window.addEventListener("click", checkForm);
 
-//~~~~~~~~~~~~~~~~~~~~ To Dd ~~~~~~~~~~~~~~~~~~~~~//
+//~~~~~~~~~~~~~~~~~~~~ To Do ~~~~~~~~~~~~~~~~~~~~~//
 
 //If I click on one - make sure all other thre are false
 
@@ -56,20 +56,20 @@ function getRandomIndex(array) {
 }
 
 function displayFood() {
-  hidePot();
-  showRecipe();
-}
-
-function hidePot() {
   var cookpot = document.querySelector(".cookpot");
-  cookpot.classList.add("hidden");
-}
-
-function showRecipe() {
   var recipeDisplay = document.querySelector(".recipe-display");
   var randomRecipeDisplay = document.querySelector(".random-recipe");
   var clearButton = document.querySelector(".clear-button");
-  recipeDisplay.classList.remove("hidden");
-  randomRecipeDisplay.classList.remove("hidden");
-  clearButton.classList.remove("hidden");
+  hidden(cookpot);
+  hidden(recipeDisplay, true);
+  hidden(randomRecipeDisplay, true);
+  hidden(clearButton, true);
+}
+
+function hidden(element, show) {
+  if(show) {
+    element.classList.remove("hidden");
+  } else {
+    element.classList.add("hidden");
+  }
 }
