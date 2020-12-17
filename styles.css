@@ -132,6 +132,13 @@ form {
   height: auto;
 }
 
+.recipe-display {
+  font-size: 30px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+  margin-right: 300px;
+}
+
 .hidden {
   display: none;
 }
