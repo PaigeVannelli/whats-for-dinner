@@ -163,8 +163,11 @@ footer {
 .text-input {
   height: 40px;
   width: 170px;
+  border: solid;
+  border-width: 2px;
   border-radius: 3px;
   border-color: #95a5a6;
+
 }
 
 .add-new-button {

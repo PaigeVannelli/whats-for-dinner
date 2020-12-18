@@ -2,12 +2,13 @@
 
 var letsCookButton = document.querySelector(".lets-cook-button");
 var clearButton = document.querySelector(".clear-button");
-
+var addRecipeButton = document.querySelector(".add-recipe-button");
 
 //~~~~~~~~~~~~~~~~~~~ EVENT LISTENERS ~~~~~~~~~~~~~~~~~~~~~~~//
 
 letsCookButton.addEventListener("click", checkForm);
 clearButton.addEventListener("click", clearFood);
+addRecipeButton.addEventListener("click", addRecipeHandler);
 
 //~~~~~~~~~~~~~~~~~~~~ To Do ~~~~~~~~~~~~~~~~~~~~~//
 
@@ -96,4 +97,13 @@ function clearFood() {
   showElement(recipeDisplay);
   showElement(randomRecipeDisplay);
   showElement(clearButton);
+}
+
+function addRecipeHandler() {
+  showFooter();
+}
+
+function showFooter() {
+  var footer = document.querySelector(".footer");
+  showElement(footer, true);
 }
