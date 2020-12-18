@@ -6,7 +6,7 @@
   <body>
     <header class="banner">
       <div class="title">What's for Dinner?</div>
-      <!-- <button class="add-button">Add a Recipe</button> -->
+        <button class="add-recipe-button">ADD A RECIPE</button>
     </header>
     <section class="home-view">
       <div class="input-box">
@@ -42,6 +42,15 @@
         <button class="clear-button hidden">CLEAR</button>
       </div>
     </section>
+    <footer>
+      <form class="input-form">
+        <label class="recipe-input" for="recipe-type">Recipe Type:</label>
+        <input class="text-input" type="text" id="recipe-type" name="recipeType">
+        <label class="recipe-input" for="recipe-name">Recipe Name:</label>
+        <input class="text-input" type="text" id="recipe-name" name="recipe-name">
+      </form>
+      <button class="add-new-button">ADD NEW</button>
+    </footer>
   </body>
   <script type="text/javascript" src="./src/data.js"></script>
   <script type="text/javascript" src="main.js"></script>

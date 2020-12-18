@@ -1,7 +1,8 @@
 // ~~~~~~~~~~~~~~~~~~~ QUERY SELECTORS ~~~~~~~~~~~~~~~~~~~~~~~//
 
 var letsCookButton = document.querySelector(".lets-cook-button");
-var clearButton = document.querySelector(".clear-button")
+var clearButton = document.querySelector(".clear-button");
+
 
 //~~~~~~~~~~~~~~~~~~~ EVENT LISTENERS ~~~~~~~~~~~~~~~~~~~~~~~//
 
@@ -18,17 +19,16 @@ clearButton.addEventListener("click", clearFood);
 //query selector all - if check give me the id
 // arry of side main dessert iterate through and pass them in and see if they are checked
 
-
-//take out the global event listener
-
-//Click clear button
-//Create a global event listener and qs for the clear button
-//We need to create the function target the clear button and have the action be
-//1. only be able to clear if food is present? This might be the trick
-//I will then use my hide function to show the right stuff
+//Add a recipe button
+//QS and add functionality to do
+//1. show bar below
+//2. create form?
+//3. each form input will return their value around
+//4. display it on the screen
+//5. push it into the array
+//6. Form should only have three option and returns an error for anything else
 
 //~~~~~~~~~~~~~~~~~~~ FUNCTIONS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-
 
 function checkForm() {
   var side = isChecked("side");
@@ -85,4 +85,15 @@ function showElement(element, show) {
   } else {
     element.classList.add("hidden");
   }
+}
+
+function clearFood() {
+  var cookpot = document.querySelector(".cookpot");
+  var recipeDisplay = document.querySelector(".recipe-display");
+  var randomRecipeDisplay = document.querySelector(".random-recipe");
+  var clearButton = document.querySelector(".clear-button");
+  showElement(cookpot, true);
+  showElement(recipeDisplay);
+  showElement(randomRecipeDisplay);
+  showElement(clearButton);
 }
