@@ -39,6 +39,8 @@ function checkForm() {
   clickCookButton(side, main, dessert, entireMeal);
 }
 
+// create an object with properties and create default false and thre
+
 function isChecked(element) {
   return document.getElementById(element).checked;
 }
@@ -46,7 +48,6 @@ function isChecked(element) {
 function clickCookButton(side, main, dessert, entireMeal) {
   event.preventDefault();
   returnFoodItemHandler(side, main, dessert, entireMeal);
-  displayFood();
   document.querySelector("form").reset();
 }
 
@@ -58,6 +59,7 @@ function returnFoodItemHandler(side, main, dessert, entireMeal) {
   } else if (dessert) {
     returnFoodItem(desserts);
   } else if (entireMeal) {
+  } else {
   }
 }
 
@@ -74,6 +76,7 @@ function displayFood() {
 
 function returnFoodItem(array) {
   document.querySelector(".random-recipe").innerText = `${array[getRandomIndex(array)]}!`;
+  displayFood();
 }
 
 function getRandomIndex(array) {
@@ -88,7 +91,7 @@ function showElement(element, show) {
   }
 }
 
-function clearFood() {
+function clearFood(cookpot, recipeDisplay, randomRecipeDisplay, clearButton) {
   var cookpot = document.querySelector(".cookpot");
   var recipeDisplay = document.querySelector(".recipe-display");
   var randomRecipeDisplay = document.querySelector(".random-recipe");
