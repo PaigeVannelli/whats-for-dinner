@@ -3,12 +3,15 @@
 var letsCookButton = document.querySelector(".lets-cook-button");
 var clearButton = document.querySelector(".clear-button");
 var addRecipeButton = document.querySelector(".add-recipe-button");
+var addNewButton = document.querySelector(".add-new-button");
 
 //~~~~~~~~~~~~~~~~~~~ EVENT LISTENERS ~~~~~~~~~~~~~~~~~~~~~~~//
 
 letsCookButton.addEventListener("click", checkForm);
 clearButton.addEventListener("click", clearFood);
 addRecipeButton.addEventListener("click", addRecipeHandler);
+addNewButton.addEventListener("click", addNewFoodItem);
+
 
 //~~~~~~~~~~~~~~~~~~~~ To Do ~~~~~~~~~~~~~~~~~~~~~//
 
@@ -104,9 +107,25 @@ function clearFood(cookpot, recipeDisplay, randomRecipeDisplay, clearButton) {
 
 function addRecipeHandler() {
   showFooter();
+  // addNewFoodItem();
 }
 
 function showFooter() {
   var footer = document.querySelector(".footer");
   showElement(footer, true);
+}
+
+function addNewFoodItem() {
+  var recipeType = document.querySelector("#recipe-type").value;
+  var recipeName = document.querySelector("#recipe-name").value;
+  if (recipeType === "Side") {
+    sides.push(recipeName);
+  } else if (recipeType === "Main") {
+    mains.push(recipeName);
+
+  } else if (recipeType === "Dessert") {
+    desserts.push(recipeName);
+  }
+  document.querySelector(".random-recipe").innerText = recipeName;
+  displayFood()
 }
