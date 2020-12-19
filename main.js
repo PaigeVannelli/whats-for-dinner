@@ -15,22 +15,8 @@ addNewButton.addEventListener("click", addNewFoodItem);
 
 //~~~~~~~~~~~~~~~~~~~~ To Do ~~~~~~~~~~~~~~~~~~~~~//
 
-//If I click on one - make sure all other thre are false
-
-//for checkForm function
-//determine if something is checked and return name
-//maybe iterate through and retunr
-//query selector all - if check give me the id
-// arry of side main dessert iterate through and pass them in and see if they are checked
-
-//Add a recipe button
-//QS and add functionality to do
-//1. show bar below
-//2. create form?
-//3. each form input will return their value around
-//4. display it on the screen
-//5. push it into the array
-//6. Form should only have three option and returns an error for anything else
+//Refactor css
+//
 
 //~~~~~~~~~~~~~~~~~~~ FUNCTIONS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
@@ -41,8 +27,6 @@ function checkForm() {
   var entireMeal = isChecked("entire-meal");
   clickCookButton(side, main, dessert, entireMeal);
 }
-
-// create an object with properties and create default false and thre
 
 function isChecked(element) {
   return document.getElementById(element).checked;
@@ -61,8 +45,6 @@ function returnFoodItemHandler(side, main, dessert, entireMeal) {
     returnFoodItem(mains);
   } else if (dessert) {
     returnFoodItem(desserts);
-  } else if (entireMeal) {
-  } else {
   }
 }
 
@@ -105,14 +87,8 @@ function clearFood(cookpot, recipeDisplay, randomRecipeDisplay, clearButton) {
   showElement(clearButton);
 }
 
-function addRecipeHandler() {
-  showFooter();
-  // addNewFoodItem();
-}
-
 function showFooter() {
-  var footer = document.querySelector(".footer");
-  showElement(footer, true);
+  showElement(document.querySelector(".footer"), true);
 }
 
 function addNewFoodItem() {
@@ -120,13 +96,13 @@ function addNewFoodItem() {
   var recipeName = document.querySelector("#recipe-name").value;
   if (recipeType === "Side") {
     sides.push(recipeName);
-    displayFood()
+    displayFood();
   } else if (recipeType === "Main") {
     mains.push(recipeName);
-    displayFood()
+    displayFood();
   } else if (recipeType === "Dessert") {
     desserts.push(recipeName);
-    displayFood()
+    displayFood();
   } else {
     showErrorMessage();
     clearFood();
@@ -135,6 +111,5 @@ function addNewFoodItem() {
 }
 
 function showErrorMessage() {
-  var errorMessage = document.querySelector(".error-message")
-  showElement(errorMessage, true);
+  showElement(document.querySelector(".error-message"), true);
 }

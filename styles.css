@@ -132,6 +132,7 @@ fieldset {
   font-size: 45px;
   font-weight: bold;
   margin: 0px;
+  text-align: center;
 }
 
 .clear-button {
