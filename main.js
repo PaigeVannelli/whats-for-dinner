@@ -9,7 +9,7 @@ var addNewButton = document.querySelector(".add-new-button");
 
 letsCookButton.addEventListener("click", checkForm);
 clearButton.addEventListener("click", clearFood);
-addRecipeButton.addEventListener("click", addRecipeHandler);
+addRecipeButton.addEventListener("click", showFooter);
 addNewButton.addEventListener("click", addNewFoodItem);
 
 
@@ -120,12 +120,21 @@ function addNewFoodItem() {
   var recipeName = document.querySelector("#recipe-name").value;
   if (recipeType === "Side") {
     sides.push(recipeName);
+    displayFood()
   } else if (recipeType === "Main") {
     mains.push(recipeName);
-
+    displayFood()
   } else if (recipeType === "Dessert") {
     desserts.push(recipeName);
+    displayFood()
+  } else {
+    showErrorMessage();
+    clearFood();
   }
-  document.querySelector(".random-recipe").innerText = recipeName;
-  displayFood()
+  document.querySelector(".random-recipe").innerText = `${recipeName}!`;
+}
+
+function showErrorMessage() {
+  var errorMessage = document.querySelector(".error-message")
+  showElement(errorMessage, true);
 }
