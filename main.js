@@ -12,12 +12,6 @@ clearButton.addEventListener("click", clearFood);
 addRecipeButton.addEventListener("click", showFooter);
 addNewButton.addEventListener("click", addNewFoodItem);
 
-
-//~~~~~~~~~~~~~~~~~~~~ To Do ~~~~~~~~~~~~~~~~~~~~~//
-
-//Refactor css
-//
-
 //~~~~~~~~~~~~~~~~~~~ FUNCTIONS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
 function checkForm() {
