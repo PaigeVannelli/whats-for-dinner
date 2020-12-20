@@ -102,6 +102,10 @@ fieldset {
   margin-left: 15px;
 }
 
+.lets-cook-error {
+  color: #ee5253;
+}
+
 .output-box {
   background-color: rgba(225, 225, 225, .9);
   height: 410px;

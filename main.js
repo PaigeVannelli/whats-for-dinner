@@ -42,6 +42,8 @@ function checkFoodItem(side, main, dessert, entireMeal) {
     returnFoodItem(desserts);
   } else if (entireMeal) {
     returnEntireMeal();
+  } else {
+    showErrorMessage(".lets-cook-error");
   }
 }
 
@@ -63,6 +65,7 @@ function displayFood() {
   showElement(recipePrompt, true);
   showElement(recipeDisplay, true);
   showElement(clearButton, true);
+  removeErrorMessage(".lets-cook-error");
 }
 
 function showElement(element, show) {
@@ -101,10 +104,10 @@ function addNewFoodItem() {
     recipeDisplay.innerText = `${recipeName}!`;
     recipeDisplay.classList.remove("small-font-size");
     displayFood();
-    removeErrorMessage();
+    removeErrorMessage(".error-message");
   } else {
     clearFood();
-    showErrorMessage();
+    showErrorMessage(".error-message");
   }
 }
 
@@ -118,10 +121,10 @@ function addFood(recipeType, recipeName) {
   }
 }
 
-function removeErrorMessage() {
-  showElement(document.querySelector(".error-message"));
+function removeErrorMessage(errorMessage) {
+  showElement(document.querySelector(errorMessage));
 }
 
-function showErrorMessage() {
-  showElement(document.querySelector(".error-message"), true);
+function showErrorMessage(errorMessage) {
+  showElement(document.querySelector(errorMessage), true);
 }
