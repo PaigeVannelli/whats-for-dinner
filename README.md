@@ -25,19 +25,19 @@ To view the code, please go to the GitHub repo (https://github.com/PaigeVannelli
 
 A random dish is returned to user based on the dish type input. Once the let's cook button is clicked the dish will be displayed on the right hand side.
 
-![Return Dish Gif]("./assets/returnDish.gif")
+![Return Dish Gif](./assets/returnDish.gif)
 
 Users can also choose to display a randomly generated entire meal by clicking the entire meal input on the form. Users must check a valid option before clicking the let's cook button, otherwise it returns an error message.
 
-![Return Dish Gif]("./assets/returnEntireMeal.gif")
+![Return Entire Meal](./assets/returnEntireMeal.gif)
 
 Once a meal or dish is displayed, users can then clear the displayed meal using the clear button.
 
-![Return Dish Gif]("./assets/clearDish.gif")
+![Clear Meal](./assets/clearDish.gif)
 
 User can add their own dish to the recipe options by clicking the add recipe option. A form appears where the user can then enter a type and name of their recipe. The recipe is then displayed on the screen. If a user enters an invalid recipe type, it returns an error message.
 
-![Return Dish Gif]("./assets/addNewRecipe.gif")
+![Add New Recipe](./assets/addNewRecipe.gif)
 
 ## Future Additions
 
