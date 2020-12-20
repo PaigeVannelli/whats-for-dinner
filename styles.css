@@ -15,6 +15,10 @@ red - #ee5253
   font-size: 20px;
 }
 
+/* .small-display-size {
+  font-size: 10px;
+} */
+
 /* ~~~~~~~~~~~~~~~~~~~~ HEADER ~~~~~~~~~~~~~~~~~~~~~ */
 
 .banner {
@@ -115,14 +119,17 @@ fieldset {
 .cookpot {
   height: auto;
   width: 110px;
+  margin: auto;
+  /* align-items: center; */
 }
 
 .recipe-display {
   font-style: italic;
   font-weight: bold;
-  margin-top: 140px;
+  /* margin-top: 140px; */
   margin-bottom: 0px;
   text-align: center;
+  align-self: flex-end;
 }
 
 .random-recipe {
@@ -141,8 +148,11 @@ fieldset {
   width: 80px;
   border: 0px;
   border-radius: 6px;
-  margin-top: 105px;
+  margin-top: 330px;
+  /* margin-bottom: -10px; */
   margin-left: 385px;
+  /* align-self: baseline; */
+  position: absolute;
 }
 
 /* ~~~~~~~~~~~~~~~~~~~~ FOOTER ~~~~~~~~~~~~~~~~~~~~~ */

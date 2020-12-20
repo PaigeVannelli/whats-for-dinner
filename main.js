@@ -39,6 +39,8 @@ function returnFoodItemHandler(side, main, dessert, entireMeal) {
     returnFoodItem(mains);
   } else if (dessert) {
     returnFoodItem(desserts);
+  } else if (entireMeal) {
+    returnEntireMeal();
   }
 }
 
@@ -55,6 +57,14 @@ function displayFood() {
 
 function returnFoodItem(array) {
   document.querySelector(".random-recipe").innerText = `${array[getRandomIndex(array)]}!`;
+  displayFood();
+}
+
+function returnEntireMeal() {
+  var entireMealString = document.querySelector(".random-recipe");
+  var text = `${mains[getRandomIndex(mains)]} with a side of ${sides[getRandomIndex(sides)]} and ${desserts[getRandomIndex(desserts)]} for dessert!`;
+  entireMealString.innerText = text
+  entireMealString.classList.add(".small-font-size")
   displayFood();
 }
 
