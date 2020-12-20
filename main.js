@@ -6,14 +6,14 @@ var addRecipeButton = document.querySelector(".add-recipe-button");
 var addNewButton = document.querySelector(".add-new-button");
 var recipeDisplay = document.querySelector(".recipe-display");
 
-//~~~~~~~~~~~~~~~~~~~ EVENT LISTENERS ~~~~~~~~~~~~~~~~~~~~~~~//
+//~~~~~~~~~~~~~~~~~~~ EVENT LISTENERS ~~~~~~~~~~~~~~~~~~~~~~~~//
 
 letsCookButton.addEventListener("click", checkForm);
 clearButton.addEventListener("click", clearFood);
 addRecipeButton.addEventListener("click", showFooter);
 addNewButton.addEventListener("click", addNewFoodItem);
 
-//~~~~~~~~~~~~~~~~~~~ FUNCTIONS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+//~~~~~~~~~~~~~~~~~~~ FUNCTIONS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
 function checkForm() {
   var side = isChecked("side");
@@ -29,11 +29,11 @@ function isChecked(element) {
 
 function clickCookButton(side, main, dessert, entireMeal) {
   event.preventDefault();
-  returnFoodItemHandler(side, main, dessert, entireMeal);
+  checkFoodItem(side, main, dessert, entireMeal);
   document.querySelector("form").reset();
 }
 
-function returnFoodItemHandler(side, main, dessert, entireMeal) {
+function checkFoodItem(side, main, dessert, entireMeal) {
   if (side) {
     returnFoodItem(sides);
   } else if (main) {
@@ -43,6 +43,16 @@ function returnFoodItemHandler(side, main, dessert, entireMeal) {
   } else if (entireMeal) {
     returnEntireMeal();
   }
+}
+
+function returnFoodItem(array) {
+  recipeDisplay.innerText = `${array[getRandomIndex(array)]}!`;
+  recipeDisplay.classList.remove("small-font-size");
+  displayFood();
+}
+
+function getRandomIndex(array) {
+  return Math.floor(Math.random() * array.length);
 }
 
 function displayFood() {
@@ -55,29 +65,18 @@ function displayFood() {
   showElement(clearButton, true);
 }
 
-function returnFoodItem(array) {
-  recipeDisplay.innerText = `${array[getRandomIndex(array)]}!`;
-  recipeDisplay.classList.remove("small-font-size");
-  displayFood();
-}
-
-function returnEntireMeal() {
-  var text = `${mains[getRandomIndex(mains)]} with a side of ${sides[getRandomIndex(sides)]} and ${desserts[getRandomIndex(desserts)]} for dessert!`;
-  recipeDisplay.innerText = text
-  recipeDisplay.classList.add("small-font-size")
-  displayFood();
-}
-
-function getRandomIndex(array) {
-  return Math.floor(Math.random() * array.length);
-}
-
 function showElement(element, show) {
   if(show) {
     element.classList.remove("hidden");
   } else {
     element.classList.add("hidden");
   }
+}
+
+function returnEntireMeal() {
+  recipeDisplay.innerText = `${mains[getRandomIndex(mains)]} with a side of ${sides[getRandomIndex(sides)]} and ${desserts[getRandomIndex(desserts)]} for dessert!`;
+  recipeDisplay.classList.add("small-font-size")
+  displayFood();
 }
 
 function clearFood() {
@@ -97,21 +96,30 @@ function showFooter() {
 function addNewFoodItem() {
   var recipeType = document.querySelector("#recipe-type").value;
   var recipeName = document.querySelector("#recipe-name").value;
+  if (recipeType === "Side" || recipeType === "Main Dish" || recipeType === "Dessert") {
+    addFood(recipeType, recipeName);
+    recipeDisplay.innerText = `${recipeName}!`;
+    recipeDisplay.classList.remove("small-font-size");
+    displayFood();
+    removeErrorMessage();
+  } else {
+    clearFood();
+    showErrorMessage();
+  }
+}
+
+function addFood(recipeType, recipeName) {
   if (recipeType === "Side") {
     sides.push(recipeName);
-    displayFood();
   } else if (recipeType === "Main Dish") {
     mains.push(recipeName);
-    displayFood();
   } else if (recipeType === "Dessert") {
     desserts.push(recipeName);
-    displayFood();
-  } else {
-    showErrorMessage();
-    clearFood();
   }
-  recipeDisplay.classList.remove("small-font-size");
-  document.querySelector(".recipe-display").innerText = `${recipeName}!`;
+}
+
+function removeErrorMessage() {
+  showElement(document.querySelector(".error-message"));
 }
 
 function showErrorMessage() {
