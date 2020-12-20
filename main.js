@@ -4,6 +4,7 @@ var letsCookButton = document.querySelector(".lets-cook-button");
 var clearButton = document.querySelector(".clear-button");
 var addRecipeButton = document.querySelector(".add-recipe-button");
 var addNewButton = document.querySelector(".add-new-button");
+var recipeDisplay = document.querySelector(".recipe-display");
 
 //~~~~~~~~~~~~~~~~~~~ EVENT LISTENERS ~~~~~~~~~~~~~~~~~~~~~~~//
 
@@ -46,25 +47,24 @@ function returnFoodItemHandler(side, main, dessert, entireMeal) {
 
 function displayFood() {
   var cookpot = document.querySelector(".cookpot");
-  var recipeDisplay = document.querySelector(".recipe-display");
-  var randomRecipeDisplay = document.querySelector(".random-recipe");
+  var recipePrompt = document.querySelector(".recipe-prompt");
   var clearButton = document.querySelector(".clear-button");
   showElement(cookpot);
+  showElement(recipePrompt, true);
   showElement(recipeDisplay, true);
-  showElement(randomRecipeDisplay, true);
   showElement(clearButton, true);
 }
 
 function returnFoodItem(array) {
-  document.querySelector(".random-recipe").innerText = `${array[getRandomIndex(array)]}!`;
+  recipeDisplay.innerText = `${array[getRandomIndex(array)]}!`;
+  recipeDisplay.classList.remove("small-font-size");
   displayFood();
 }
 
 function returnEntireMeal() {
-  var entireMealString = document.querySelector(".random-recipe");
   var text = `${mains[getRandomIndex(mains)]} with a side of ${sides[getRandomIndex(sides)]} and ${desserts[getRandomIndex(desserts)]} for dessert!`;
-  entireMealString.innerText = text
-  entireMealString.classList.add(".small-font-size")
+  recipeDisplay.innerText = text
+  recipeDisplay.classList.add("small-font-size")
   displayFood();
 }
 
@@ -80,14 +80,13 @@ function showElement(element, show) {
   }
 }
 
-function clearFood(cookpot, recipeDisplay, randomRecipeDisplay, clearButton) {
+function clearFood() {
   var cookpot = document.querySelector(".cookpot");
-  var recipeDisplay = document.querySelector(".recipe-display");
-  var randomRecipeDisplay = document.querySelector(".random-recipe");
+  var recipePrompt = document.querySelector(".recipe-prompt");
   var clearButton = document.querySelector(".clear-button");
   showElement(cookpot, true);
+  showElement(recipePrompt);
   showElement(recipeDisplay);
-  showElement(randomRecipeDisplay);
   showElement(clearButton);
 }
 
@@ -101,7 +100,7 @@ function addNewFoodItem() {
   if (recipeType === "Side") {
     sides.push(recipeName);
     displayFood();
-  } else if (recipeType === "Main") {
+  } else if (recipeType === "Main Dish") {
     mains.push(recipeName);
     displayFood();
   } else if (recipeType === "Dessert") {
@@ -111,7 +110,8 @@ function addNewFoodItem() {
     showErrorMessage();
     clearFood();
   }
-  document.querySelector(".random-recipe").innerText = `${recipeName}!`;
+  recipeDisplay.classList.remove("small-font-size");
+  document.querySelector(".recipe-display").innerText = `${recipeName}!`;
 }
 
 function showErrorMessage() {

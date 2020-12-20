@@ -15,9 +15,6 @@ red - #ee5253
   font-size: 20px;
 }
 
-/* .small-display-size {
-  font-size: 10px;
-} */
 
 /* ~~~~~~~~~~~~~~~~~~~~ HEADER ~~~~~~~~~~~~~~~~~~~~~ */
 
@@ -123,7 +120,7 @@ fieldset {
   /* align-items: center; */
 }
 
-.recipe-display {
+.recipe-prompt {
   font-style: italic;
   font-weight: bold;
   /* margin-top: 140px; */
@@ -132,7 +129,7 @@ fieldset {
   align-self: flex-end;
 }
 
-.random-recipe {
+.recipe-display {
   font-size: 45px;
   font-weight: bold;
   margin: 0;
@@ -200,4 +197,9 @@ footer {
 
 .hidden {
   display: none;
+}
+
+.small-font-size {
+  font-size: 25px;
+  margin: 25px 35px 10px 35px;
 }
